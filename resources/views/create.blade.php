@@ -15,7 +15,7 @@
                 <div class="alert alert-danger">
                     <ul>
                         @foreach ($errors->all() as $error)
-                            <li>{{ error }}</li>
+                            <li>{{ $error }}</li>
                         @endforeach
                     </ul>
                 </div><br>
@@ -32,7 +32,7 @@
                 </div>
                 <div class="form-group">
                     <label for="price">Book Price:</label>
-                    <input type="text" class="form-control" name="price">
+                    <input type="text" class="form-control" name="book_price">
                 </div>
                 <button type="submit" class="btn btn-primary">Create Book</button>
             </form>

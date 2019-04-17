@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Book;
 
 class BookController extends Controller
 {
@@ -34,7 +35,14 @@ class BookController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'book_name' => 'required|max:255',
+            'isbn_no' => 'required|alpha_num',
+            'book_price' => 'required|numeric'
+        ]);
+        $book = Book::create($validatedData);
+
+        return redirect('/books')->with('success', 'Book is successfully saved');
     }
 
     /**
